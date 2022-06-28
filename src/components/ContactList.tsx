@@ -7,10 +7,10 @@ interface contactProps {
   tag: string;
 }
 
-type props = {
+interface props {
   contacts: Array<contactProps>;
   onDelete(id: number): void;
-};
+}
 
 const ContactList = ({ contacts, onDelete }: props) => {
   return (
