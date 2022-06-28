@@ -7,15 +7,16 @@ interface contactProps {
   tag: string;
 }
 
-interface props {
+type props = {
   contacts: Array<contactProps>;
-}
+  onDelete(id: number): void;
+};
 
-const ContactList = ({ contacts }: props) => {
+const ContactList = ({ contacts, onDelete }: props) => {
   return (
     <div className="contact-list">
       {contacts.map((contact: contactProps) => (
-        <ContactItem key={contact.id} {...contact} />
+        <ContactItem key={contact.id} onDelete={onDelete} {...contact} />
       ))}
     </div>
   );
