@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface props {
   addContact(args: { name: string; tag: string }): void;
@@ -29,13 +29,13 @@ const ContactInput = ({ addContact }: props) => {
     });
   };
 
-  const onSubmitEventHandler = (event: MouseEvent<HTMLButtonElement>): void => {
+  const onSubmitEventHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     addContact(state);
   };
 
   return (
-    <form className="contact-input" onSubmit={() => onSubmitEventHandler}>
+    <form className="contact-input" onSubmit={onSubmitEventHandler}>
       <input
         type="text"
         placeholder="Nama"
