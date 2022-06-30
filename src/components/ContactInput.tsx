@@ -31,7 +31,10 @@ const ContactInput = ({ addContact }: props) => {
 
   const onSubmitEventHandler = (event: FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    addContact(state);
+
+    if (state.name !== "" && state.tag !== "") {
+      addContact(state);
+    }
   };
 
   return (
